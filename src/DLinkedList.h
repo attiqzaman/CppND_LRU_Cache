@@ -29,7 +29,6 @@ bool DLinkedList<T>::is_empty(){
 template <typename T>
 BaseNode<T>* DLinkedList<T>::add_item_to_front(int key, T& value) {
     BaseNode<T>* item;
-
     if(!_front && !_rear) {
         item = new BaseNode(key, value);
         _front = _rear = item;
@@ -66,9 +65,10 @@ template <typename T>
 void DLinkedList<T>::delete_rear_item(){
     if (is_empty())
     {
+        std::cout << "cache is empty, nothing to delete.." << '\n';
         return;
     }
-    
+
     if (_front == _rear)
     {
         delete _rear;
