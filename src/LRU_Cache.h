@@ -17,7 +17,7 @@ public:
     ~LRU_Cache();
     T get(int key);
     bool key_exists(int key);
-    void put(int key, T value);
+    void put(int key, T &value);
 };
 
 
@@ -47,8 +47,6 @@ bool LRU_Cache<T>::key_exists(int key){
 
 template<typename T>
 T LRU_Cache<T>::get(int key){
-    
-
     auto val = _items_dict[key]->_value;
 
     // move the page to front
@@ -57,9 +55,9 @@ T LRU_Cache<T>::get(int key){
 }
 
 template<typename T>
-void LRU_Cache<T>::put(int key, T value){
+void LRU_Cache<T>::put(int key, T& value){
     if(_items_dict.find(key)!=_items_dict.end()) {
-        // if key already present, update value and move item to head
+        // if key already exists, update value and move item to head
         _items_dict[key]->_value = value;
         _items->move_item_to_front(_items_dict[key]);
         return;

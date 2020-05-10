@@ -11,7 +11,7 @@ private:
 public:
     DLinkedList();
     
-    BaseNode<T>* add_item_to_front(int key, T value);
+    BaseNode<T>* add_item_to_front(int key, T& value);
     void move_item_to_front(BaseNode<T> *item);
 
     void delete_rear_item();
@@ -27,14 +27,15 @@ bool DLinkedList<T>::is_empty(){
 }
 
 template <typename T>
-BaseNode<T>* DLinkedList<T>::add_item_to_front(int key, T value) {
-    BaseNode<T>* item = new BaseNode(key, value);
+BaseNode<T>* DLinkedList<T>::add_item_to_front(int key, T& value) {
+    BaseNode<T>* item;
 
     if(!_front && !_rear) {
+        item = new BaseNode(key, value);
         _front = _rear = item;
     }
     else {
-        item->_next = _front;
+        item = new BaseNode(key, value, _front);
         _front->_prev = item;
         _front = item;
     }
@@ -43,7 +44,7 @@ BaseNode<T>* DLinkedList<T>::add_item_to_front(int key, T value) {
 
 template <typename T>
 void DLinkedList<T>::move_item_to_front(BaseNode<T> *item) {
-    if(item==_front) {
+    if(item == _front) {
         return;
     }
     if(item == _rear) {

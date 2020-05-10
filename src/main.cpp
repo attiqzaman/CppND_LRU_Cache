@@ -7,8 +7,10 @@ int main() {
     LRU_Cache<char> cache(2);
     std::cout << "capacity " << cache._total_capacity << " size " << cache._current_size << "\n";
 
-    cache.put(2,'c');
-    cache.put(1,'d');
+    auto c = 'c';
+    auto d = 'd';
+    cache.put(2, c);
+    cache.put(1, d);
     std::cout << cache.get(2) << "\n";
 
     if (cache.key_exists(1))
