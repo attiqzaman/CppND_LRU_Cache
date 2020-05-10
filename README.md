@@ -1,4 +1,4 @@
-# CPPND: Memory Management Chatbot
+# CPPND: Capstone
 
 This is the project for the capstone project of [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213).
 
