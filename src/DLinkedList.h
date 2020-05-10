@@ -1,3 +1,4 @@
+#include <iostream>
 #include "BaseNode.h"
 
 template <class T>
@@ -9,7 +10,6 @@ private:
 
 public:
     DLinkedList();
-    ~DLinkedList();
     
     BaseNode<T>* add_item_to_front(int key, T value);
     void move_item_to_front(BaseNode<T> *item);
